@@ -1,31 +1,26 @@
 import Head from 'next/head'
 import HeaderBar from "../components/HeaderBar/HeaderBar";
 import Gallery from "../components/Gallery/Gallery";
-import path from 'path'
-import fs from 'fs'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { retrieveImages } from "../lib/dbInterface";
 
 
-export async function getStaticProps() {
-  const dataFilePath = path.join(process.cwd(), 'data', 'images.json')
-  const images = fs.readFileSync(dataFilePath, 'utf-8')
-  console.log(images)
-  return {
-    props: {
-      images
-    },
-    revalidate: 1
-  }
-}
 
-
-export default function Home({ images }) {
+export default function Home(props) {
   const [searchLabel, setSearchQuery] = useState(null);
+  const [images, setImages] = useState(null)
 
 
-
+  useEffect(() => {
+    async function updateImages() {
+      const dbsnapshot = await retrieveImages(searchLabel);
+      setImages(dbsnapshot);
+    }
+     updateImages()
+  }, [])
 
   return (
+
     <div className="p-5">
       <Head>
         <title>Create Next App</title>
@@ -33,14 +28,14 @@ export default function Home({ images }) {
       </Head>
 
       <body>
-        <div>
-          <HeaderBar setSearchQuery = {setSearchQuery} />
-        </div>
+        <header>
+          <HeaderBar setSearchQuery={setSearchQuery} searchLabel={searchLabel} />
+        </header>
 
 
-        <div className="my-5">
-          <Gallery images={images} searchLabel = {searchLabel}/>
-        </div>
+        <main className="my-5">
+          <Gallery images={images} searchLabel={searchLabel} />
+        </main>
 
       </body>
 

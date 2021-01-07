@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function HeaderBar(props) {
+
+  const [searchText, setSearchText] = useState(props.searchLabel? props.searchLabel : "Search by name")
+
+  function handleChange(e){
+    props.setSearchQuery(e.target.value)
+
+    setSearchText(e.target.value);
+
+  };
+
+  function handleSubmit(e){
+    props.setSearchQuery(e.target.value)
+  }
 
 
   return (
@@ -18,7 +31,7 @@ export default function HeaderBar(props) {
 
       {/* Search Bar  */ }
   <div className="border flex-grow-4 flex items-center text-gray-400 px-3">
-  <input type="text" id="fname" name="fname" value="Search by name" />
+  <input type="text" id="fname" name="fname" value={searchText} onChange={handleChange} onSubmit={handleSubmit}/>
   </div>
 
   {/* Button to add photo */ }

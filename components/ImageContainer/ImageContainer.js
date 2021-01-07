@@ -1,7 +1,8 @@
 import React from 'react';
 
 
-export default  function ImageContainer({ image }) {
+export default  function ImageContainer(props) {
+  let image = props.image.data()
   function addClass(evt){
     let h = evt.target.height;
     let w = evt.target.width;
@@ -10,7 +11,7 @@ export default  function ImageContainer({ image }) {
   
   return(
     <div>
-      <img src={image.url} className = "rounded-lg" onLoad={addClass}/>
+      <img src={image.url} data-key={props.key} className = "rounded-lg" onLoad={addClass}/>
     </div>
   )
 
