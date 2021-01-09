@@ -6,7 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 export default function HeaderBar(props) {
 
-  const [searchText, setSearchText] = useState(props.searchLabel? props.searchLabel : "Search by name")
+  const [searchText, setSearchText] = useState(props.searchLabel)
 
   function handleChange(e){
     props.setSearchQuery(e.target.value)
@@ -17,6 +17,7 @@ export default function HeaderBar(props) {
 
   function handleSubmit(e){
     props.setSearchQuery(e.target.value)
+    props.incrementNumberOfChanges()
   }
 
 
@@ -31,12 +32,12 @@ export default function HeaderBar(props) {
 
       {/* Search Bar  */ }
   <div className="border flex-grow-4 flex items-center text-gray-400 px-3">
-  <input type="text" id="fname" name="fname" value={searchText} onChange={handleChange} onSubmit={handleSubmit}/>
+  <input type="text" id="fname" name="fname" value={searchText} onChange={handleChange} onSubmit={handleSubmit} className="placeholder-gray-500 placeholder-opacity-100 ..." placeholder="Search by label"/>
   </div>
 
   {/* Button to add photo */ }
   <div>
-    <button className="bg-green-500 p-2 border rounded-lg text-white">Add a photo</button>
+    <button className="bg-green-500 p-2 border rounded-lg text-white" onClick={props.invokeAddModal}>Add a photo</button>
   </div>
 
 
