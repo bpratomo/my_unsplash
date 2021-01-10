@@ -13,9 +13,8 @@ export default function ImageContainer(props) {
 
   function handleDelete(evt) {
     console.log("deleting image "+props.datakey )
-    removeImage(props.datakey);
+    removeImage(props.datakey, props.incrementNumberOfChanges);
     // console.log(props.setNumberOfChanges);
-    props.incrementNumberOfChanges()
     // console.log(props.counter);
   }
 

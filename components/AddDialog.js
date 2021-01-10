@@ -16,7 +16,6 @@ export default function AddDialog(props) {
         console.log(data)
     }
 
-    console.log(watch("label")); // watch input value by passing the name of it
 
 
 
