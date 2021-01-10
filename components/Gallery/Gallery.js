@@ -12,6 +12,8 @@ export default function Gallery(props) {
           key={image.id}
           datakey={image.id}
           image={image}
+          invokeDeleteModal = {props.invokeDeleteModal}
+          setDataKey = {props.setDataKey}
           incrementNumberOfChanges={props.incrementNumberOfChanges}
         />
       );

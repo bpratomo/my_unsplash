@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import { addImage } from "../lib/dbInterface";
+import { removeImage } from "../lib/dbInterface";
 import { useForm } from "react-hook-form";
 
-export default function AddDialog(props) {
+export default function DeleteDialog(props) {
   const { register, handleSubmit, watch, errors } = useForm();
 
-  function onSubmit(data) {
-    addImage(data["label"], data["url"]);
-    props.incrementNumberOfChanges();
-
+  function onSubmit() {
+    console.log("deleting image " + props.dataKey);
+    removeImage(props.dataKey, props.incrementNumberOfChanges);
     props.closeModal();
-    // console.log(data);
   }
 
   return (
@@ -21,41 +19,27 @@ export default function AddDialog(props) {
       aria-labelledby="modal-headline"
     >
       <div>
-        <h2>Add a new photo</h2>
+        <h2>Are you sure?</h2>
         <form className="flex-col flex" onSubmit={handleSubmit(onSubmit)}>
           <row className="mt-3">
-            <p>Label</p>
+            <p>Password</p>
 
             <input
-              name="label"
+              name="password"
+              type="password"
               // onChange={handleChange}
               // defaultValue={formState['label']}
               className="placeholder-gray-500 placeholder-opacity-100 rounded-lg w-full p-1 border border-black"
-              placeholder="The label for your image"
-              ref={register}
-            />
-          </row>
-
-          <row className="mt-3">
-            <p>Label</p>
-
-            <input
-              name="url"
-              // onChange={handleChange}
-              // value={formState['url']}
-              className="placeholder-gray-500 placeholder-opacity-100 rounded-lg p-1 w-full border border-black"
-              placeholder="https://whereyourimageislocated.example"
+              placeholder="**************************"
               ref={register}
             />
           </row>
 
           <row className="mt-3 flex justify-end">
-            <button className="bg-green-500 p-2 border rounded-lg text-white" onClick={props.closeModal}>
-              Cancel
-            </button>
+            <button className="p-2 mr-3 border rounded-lg " onClick={props.closeModal}>Cancel</button>
             <button
               type="submit"
-              className="bg-green-500 p-2 border rounded-lg text-white"
+              className="bg-red-500 p-2 border rounded-lg text-white"
             >
               Submit
             </button>
