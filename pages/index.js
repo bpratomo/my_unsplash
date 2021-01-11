@@ -1,6 +1,6 @@
 import Head from "next/head";
-import HeaderBar from "../components/HeaderBar/HeaderBar";
-import Gallery from "../components/Gallery/Gallery";
+import HeaderBar from "../components/HeaderBar";
+import Gallery from "../components/Gallery";
 import AddDialog from "../components/AddDialog";
 import DeleteDialog from "../components/DeleteDialog";
 import { useState, useEffect } from "react";

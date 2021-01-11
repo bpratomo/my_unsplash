@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { removeImage } from "../../lib/dbInterface";
+import { removeImage } from "../lib/dbInterface";
 
 export default function ImageContainer(props) {
   let image = props.image.data();

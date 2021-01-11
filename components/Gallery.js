@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import ImageContainer from "../ImageContainer/ImageContainer";
+import ImageContainer from "./ImageContainer";
 
 export default function Gallery(props) {
   let imageContained = [];
+
+  if(props.images == null){
+    return <div>Loading....</div>
+  }
 
   try {
     props.images.forEach((image) => {
