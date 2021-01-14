@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { addImage } from "../lib/dbInterface";
 import { useForm } from "react-hook-form";
 
@@ -10,7 +10,6 @@ export default function AddDialog(props) {
     props.incrementNumberOfChanges();
 
     props.closeModal();
-    // console.log(data);
   }
 
   return (
@@ -41,8 +40,6 @@ export default function AddDialog(props) {
 
             <input
               name="url"
-              // onChange={handleChange}
-              // value={formState['url']}
               className="placeholder-gray-500 placeholder-opacity-100 rounded-lg p-1 w-full border border-black"
               placeholder="https://whereyourimageislocated.example"
               ref={register}

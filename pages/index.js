@@ -15,7 +15,6 @@ export default function Home(props) {
   const [numberOfChanges, setNumberOfChanges] = useState(0);
 
   async function updateImages() {
-    console.log("Use Effect is called!");
     const dbsnapshot = await retrieveImages(searchLabel);
     setImages(dbsnapshot);
   }
@@ -29,19 +28,16 @@ export default function Home(props) {
   }
 
   function invokeAddModal() {
-    console.log("invoking add dialog");
     setVisibleUIElement("Add");
   }
 
   function invokeDeleteModal(keyToDelete) {
-    console.log("invoking delete dialog for " + keyToDelete);
     setKeyToDelete(keyToDelete)
     
     setVisibleUIElement("Delete");
   }
 
   function closeModal() {
-    console.log("closing modal dialogs");
     setVisibleUIElement("Gallery");
   }
 

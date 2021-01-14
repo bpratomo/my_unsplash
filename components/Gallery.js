@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import ImageContainer from "./ImageContainer";
 
 export default function Gallery(props) {
   let imageContained = [];
 
-  console.log("length of image array is");
-  console.log(props.images);
 
   if (props.images == null) {
     return <div>Loading....</div>;
@@ -13,7 +11,6 @@ export default function Gallery(props) {
 
   try {
     props.images.forEach((image) => {
-      // console.log(image.id)
       imageContained.push(
         <ImageContainer
           key={image.id}

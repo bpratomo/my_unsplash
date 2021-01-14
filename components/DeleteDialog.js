@@ -6,7 +6,6 @@ export default function DeleteDialog(props) {
   const { register, handleSubmit, watch, errors } = useForm();
 
   function onSubmit() {
-    console.log("deleting image " + props.dataKey);
     removeImage(props.dataKey, props.incrementNumberOfChanges);
     props.closeModal();
   }
