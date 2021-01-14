@@ -4,8 +4,11 @@ import ImageContainer from "./ImageContainer";
 export default function Gallery(props) {
   let imageContained = [];
 
-  if(props.images == null){
-    return <div>Loading....</div>
+  console.log("length of image array is");
+  console.log(props.images);
+
+  if (props.images == null) {
+    return <div>Loading....</div>;
   }
 
   try {
@@ -16,8 +19,8 @@ export default function Gallery(props) {
           key={image.id}
           datakey={image.id}
           image={image}
-          invokeDeleteModal = {props.invokeDeleteModal}
-          setDataKey = {props.setDataKey}
+          invokeDeleteModal={props.invokeDeleteModal}
+          setDataKey={props.setDataKey}
           incrementNumberOfChanges={props.incrementNumberOfChanges}
         />
       );
@@ -26,5 +29,8 @@ export default function Gallery(props) {
     console.log(e);
   }
 
-  return <div className="galleryGrid">{imageContained}</div>;
+  if (imageContained.length > 0) {
+    return <div className="galleryGrid">{imageContained}</div>;
+  }
+  return <h1>No results!</h1>
 }

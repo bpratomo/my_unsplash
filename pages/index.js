@@ -64,7 +64,7 @@ export default function Home(props) {
 
 
 
-        <main className="my-5">
+        <main className="my-5 mx-20">
           <Gallery
             images={images}
             searchLabel={searchLabel}

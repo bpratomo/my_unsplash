@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -8,6 +8,9 @@ export default function HeaderBar(props) {
   const { register, handleSubmit, watch, errors } = useForm();
   const [searchText, setSearchText] = useState(props.searchLabel);
 
+  useEffect(() => {
+    setSearchText(null);
+  });
   function onSubmit(data) {
     props.setSearchQuery(data["search"]);
     console.log(data);

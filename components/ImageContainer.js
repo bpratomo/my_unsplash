@@ -25,9 +25,9 @@ export default function ImageContainer(props) {
 
   if (image) {
     return (
-      <div className="max-w-full inline-block text-left my-1">
+      <div className="w-full inline-block text-left my-1">
         <div className="relative h-full group ">
-          <img src={image.url} className="rounded-lg" onLoad={addClass} />
+          <img src={image.url} className="rounded-lg w-full" onLoad={addClass} />
           <button className="bg-green-500 absolute top-0 left-0 p-1 text-white rounded m-2 text-xs bg-opacity-0 text-opacity-0 group-hover:text-opacity-100 group-hover:bg-opacity-100">
             {image.label}
           </button>
