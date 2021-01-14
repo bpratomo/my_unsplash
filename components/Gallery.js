@@ -26,5 +26,5 @@ export default function Gallery(props) {
     console.log(e);
   }
 
-  return <div className="grid grid-cols-3 gap-3">{imageContained}</div>;
+  return <div className="galleryGrid">{imageContained}</div>;
 }

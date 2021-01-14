@@ -50,12 +50,17 @@ export default function AddDialog(props) {
           </row>
 
           <row className="mt-3 flex justify-end">
-            <button className="bg-green-500 p-2 border rounded-lg text-white" onClick={props.closeModal}>
+            <button
+              type="button"
+              className="bg-green-500 p-2 border rounded-lg text-white"
+              onClick={props.closeModal}
+            >
               Cancel
             </button>
             <button
               type="submit"
               className="bg-green-500 p-2 border rounded-lg text-white"
+              ref={register}
             >
               Submit
             </button>

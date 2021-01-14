@@ -48,7 +48,7 @@ export default function Home(props) {
   return (
     <div className="p-5  w-screen">
       <Head>
-        <title>Create Next App</title>
+        <title>My Unsplash</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
