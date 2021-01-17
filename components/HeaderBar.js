@@ -14,15 +14,15 @@ export default function HeaderBar(props) {
   }
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between md:text-md text-xs">
       {/* Profile Picture */}
-      <div className="flex text-sm ">
+      <div className="flex text-sm flex-grow-0 flex-shrink-0">
         <img src="/my_unsplash_logo.svg"></img>
       </div>
 
       {/* Search Bar  */}
       <form
-        className="border flex-grow-4 flex items-center px-3"
+        className="border flex-auto mx-1 flex items-center px-3 max-w-sm sm:text-sm"
         onSubmit={handleSubmit(onSubmit)}
       >
         <input
@@ -38,7 +38,7 @@ export default function HeaderBar(props) {
       </form>
 
       {/* Button to add photo */}
-      <div>
+      <div className="flex-grow-0">
         <button
           className="bg-green-500 p-2 border rounded-lg text-white"
           onClick={props.invokeAddModal}
